@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC B2B Marketplace - Premium Wholesale Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f23;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        select {
+            padding: 0.8rem 3rem 0.8rem 1.2rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            appearance: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        select:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(102, 126, 234, 0.6);
+            transform: translateY(-2px);
+        }
+
+        select option {
+            background: #1a1a2e;
+            color: #e0e0e0;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #667eea;
+            font-size: 0.7rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .shops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .shop-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .shop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .shop-card:hover::before {
+            opacity: 1;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .shop-banner {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .shop-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .shop-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shop-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .shop-description {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .shop-meta {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: #c0c0c0;
+        }
+
+        .shop-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .shop-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        /* Vendor Shop Page Layout */
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #c0c0c0;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .category-link:hover, .category-link.active {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .subcategory-list {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .category-item.expanded .subcategory-list {
+            display: block;
+        }
+
+        .category-link.has-children::after {
+            content: '▶';
+            float: right;
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-item.expanded .category-link.has-children::after {
+            transform: rotate(90deg);
+        }
+
+        .vendor-header-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .vendor-logo-large {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .vendor-info {
+            flex: 1;
+        }
+
+        .vendor-info h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 900;
+        }
+
+        .vendor-info p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.25);
+        }
+
+        .product-image {
+            height: 260px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: #667eea;
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-availability {
+            color: #4ade80;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-category {
+            color: #888;
+            font-size: 0.85rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            color: #888;
+            font-size: 0.95rem;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #764ba2;
+        }
+
+        .product-detail {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-detail-image {
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-detail-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+        }
+
+        .product-detail-info h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        .product-detail-price {
+            font-size: 3rem;
+            color: #667eea;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        .availability-section {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .availability-section h3 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .country-availability {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .country-badge {
+            background: rgba(74, 222, 128, 0.2);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: #4ade80;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .product-description {
+            margin-top: 3rem;
+            line-height: 1.9;
+            color: #c0c0c0;
+        }
+
+        .product-description h2 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            .shop-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shops-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .container, .shop-layout {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo" onclick="showPage1()">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">ABC Marketplace</div>
+            </div>
+            <div class="header-controls">
+                <div class="select-wrapper">
+                    <select id="countrySelector">
+                        <option value="pk">🇵🇰 Pakistan</option>
+                        <option value="us">🇺🇸 United States</option>
+                        <option value="ae">🇦🇪 UAE</option>
+                        <option value="uk">🇬🇧 United Kingdom</option>
+                        <option value="ca">🇨🇦 Canada</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select id="currencySelector">
+                        <option value="pkr">PKR</option>
+                        <option value="usd">USD</option>
+                        <option value="aed">AED</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page 1: Marketplace Home -->
+    <div id="page1">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>World's Premier B2B Marketplace</h1>
+                <p>Connect with verified vendors and scale your business globally</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Verified Vendors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <h2 class="section-title">Featured Vendors</h2>
+            <p class="section-subtitle">Discover top-rated suppliers from around the world</p>
+
+            <div class="shops-grid">
+                <div class="shop-card" onclick="showPage2('SastaShop', '💻')">
+                    <div class="shop-banner">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">💻</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★★</span>
+                            <span style="color: #888;">4.9 (2,345 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">SastaShop</h3>
+                        <p class="shop-description">Premium electronics, gadgets, and technology solutions for modern businesses worldwide</p>
+                        <div class="shop-meta">
+                            <span>📦 1,234 Products</span>
+                            <span>🌍 5 Countries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-card" onclick="showPage2('TechHub', '⚙️')">
+                    <div class="shop-banner" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">⚙️</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★★</span>
+                            <span style="color: #888;">4.8 (1,892 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">TechHub</h3>
+                        <p class="shop-description">Leading technology solutions, software, and IT infrastructure for enterprises</p>
+                        <div class="shop-meta">
+                            <span>📦 856 Products</span>
+                            <span>🌍 3 Countries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-card" onclick="showPage2('GlobalSupply', '🏭')">
+                    <div class="shop-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">🏭</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span style="color: #888;">4.7 (3,421 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">GlobalSupply</h3>
+                        <p class="shop-description">Industrial equipment, machinery, and manufacturing solutions for large-scale operations</p>
+                        <div class="shop-meta">
+                            <span>📦 2,045 Products</span>
+                            <span>🌍 8 Countries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-card" onclick="showPage2('PrimeWholesale', '📦')">
+                    <div class="shop-banner" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;">📦</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★★</span>
+                            <span style="color: #888;">4.9 (5,123 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">PrimeWholesale</h3>
+                        <p class="shop-description">Bulk consumer goods, FMCG products, and retail supplies at unbeatable wholesale prices</p>
+                        <div class="shop-meta">
+                            <span>📦 3,567 Products</span>
+                            <span>🌍 6 Countries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-card" onclick="showPage2('IndustrialParts', '🔧')">
+                    <div class="shop-banner" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); color: white;">🔧</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★★</span>
+                            <span style="color: #888;">4.8 (2,876 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">IndustrialParts</h3>
+                        <p class="shop-description">Specialized automotive, industrial spare parts, and maintenance equipment distribution</p>
+                        <div class="shop-meta">
+                            <span>📦 4,123 Products</span>
+                            <span>🌍 4 Countries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-card" onclick="showPage2('OfficeEssentials', '🏢')">
+                    <div class="shop-banner" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="shop-logo" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">🏢</div>
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-rating">
+                            <span class="stars">★★★★★</span>
+                            <span style="color: #888;">4.9 (4,567 reviews)</span>
+                        </div>
+                        <h3 class="shop-name">OfficeEssentials</h3>
+                        <p class="shop-description">Complete office supplies, furniture, and workspace solutions for modern businesses</p>
+                        <div class="shop-meta">
+                            <span>📦 1,890 Products</span>
+                            <span>🌍 7 Countries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Vendor Shop Page with Sidebar -->
+    <div id="page2" class="hidden">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage1()">Home</a>
+                <span>›</span>
+                <span id="vendorNameBreadcrumb">SastaShop</span>
+            </div>
+        </div>
+
+        <div class="shop-layout">
+            <!-- Sidebar with Categories -->
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul class="category-list">
+                    <li class="category-item expanded">
+                        <a href="#" class="category-link has-children active" onclick="toggleCategory(event, this)">Electronics</a>
+                        <ul class="subcategory-list">
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Computers</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Laptops</a></li>
+                                    <li><a href="#" class="category-link">Desktops</a></li>
+                                    <li><a href="#" class="category-link">Tablets</a></li>
+                                </ul>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Audio</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Headphones</a></li>
+                                    <li><a href="#" class="category-link">Speakers</a></li>
+                                    <li><a href="#" class="category-link">Microphones</a></li>
+                                </ul>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Wearables</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Watches</a></li>
+                                    <li><a href="#" class="category-link">Fitness Bands</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Accessories</a>
+                        <ul class="subcategory-list">
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Peripherals</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Keyboards</a></li>
+                                    <li><a href="#" class="category-link">Mice</a></li>
+                                    <li><a href="#" class="category-link">Webcams</a></li>
+                                </ul>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Displays</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Monitors</a></li>
+                                    <li><a href="#" class="category-link">Projectors</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Mobile Devices</a>
+                        <ul class="subcategory-list">
+                            <li class="category-item">
+                                <a href="#" class="category-link has-children" onclick="toggleCategory(event, this)">Smartphones</a>
+                                <ul class="subcategory-list">
+                                    <li><a href="#" class="category-link">Android</a></li>
+                                    <li><a href="#" class="category-link">iOS</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <div>
+                <div class="vendor-header-page">
+                    <div class="vendor-logo-large" id="vendorLogoLarge">💻</div>
+                    <div class="vendor-info">
+                        <h1 id="vendorName">SastaShop</h1>
+                        <p>Premium electronics and gadgets supplier with worldwide shipping capabilities</p>
+                        <div class="vendor-badges">
+                            <span class="badge">⭐ 4.9 Rating</span>
+                            <span class="badge">✓ Verified Seller</span>
+                            <span class="badge">🚚 Fast Shipping</span>
+                            <span class="badge">💼 B2B Specialist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card" onclick="showPage3('Premium Laptop')">
+                        <div class="product-image">💻</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Premium Laptop</h3>
+                            <div class="product-price" data-usd="1299" data-pkr="361720" data-aed="4770">$1,299</div>
+                            <p class="product-availability">✓ Available in Pakistan, UAE, USA</p>
+                            <p class="product-category">Electronics → Computers → Laptops</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="showPage3('Wireless Earbuds')">
+                        <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🎧</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Wireless Earbuds Pro</h3>
+                            <div class="product-price" data-usd="149" data-pkr="41472" data-aed="547">$149</div>
+                            <p class="product-availability">✓ Available in Pakistan, UAE</p>
+                            <p class="product-category">Electronics → Audio → Headphones</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="showPage3('Smart Watch')">
+                        <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">⌚</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Smart Watch Ultra</h3>
+                            <div class="product-price" data-usd="299" data-pkr="83216" data-aed="1098">$299</div>
+                            <p class="product-availability">✓ Available in USA, UAE, UK</p>
+                            <p class="product-category">Electronics → Wearables → Watches</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="showPage3('4K Monitor')">
+                        <div class="product-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🖥️</div>
+                        <div class="product-info">
+                            <h3 class="product-name">4K Gaming Monitor</h3>
+                            <div class="product-price" data-usd="599" data-pkr="166720" data-aed="2200">$599</div>
+                            <p class="product-availability">✓ Available in Pakistan, USA</p>
+                            <p class="product-category">Accessories → Displays → Monitors</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="showPage3('Mechanical Keyboard')">
+                        <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">⌨️</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Mechanical Keyboard RGB</h3>
+                            <div class="product-price" data-usd="129" data-pkr="35888" data-aed="474">$129</div>
+                            <p class="product-availability">✓ Available in Pakistan, UAE, USA, UK</p>
+                            <p class="product-category">Accessories → Peripherals → Keyboards</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="showPage3('Webcam HD')">
+                        <div class="product-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">📷</div>
+                        <div class="product-info">
+                            <h3 class="product-name">4K Webcam Professional</h3>
+                            <div class="product-price" data-usd="79" data-pkr="21984" data-aed="290">$79</div>
+                            <p class="product-availability">✓ Available in UAE, USA</p>
+                            <p class="product-category">Accessories → Peripherals → Webcams</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Product Detail Page -->
+    <div id="page3" class="container hidden">
+        <div class="breadcrumb">
+            <a href="#" onclick="showPage1()">Home</a>
+            <span>›</span>
+            <a href="#" onclick="showPage2()">SastaShop</a>
+            <span>›</span>
+            <span id="productNameBreadcrumb">Premium Laptop</span>
+        </div>
+
+        <div class="product-detail">
+            <div class="product-detail-grid">
+                <div class="product-detail-image">💻</div>
+                <div class="product-detail-info">
+                    <h1 id="productDetailName">Premium Laptop</h1>
+                    <div class="product-detail-price" data-usd="1299" data-pkr="361720" data-aed="4770">$1,299</div>
+                    
+                    <div class="availability-section">
+                        <h3>🌍 Available in Countries:</h3>
+                        <div class="country-availability">
+                            <span class="country-badge">🇵🇰 Pakistan</span>
+                            <span class="country-badge">🇦🇪 UAE</span>
+                            <span class="country-badge">🇺🇸 United States</span>
+                        </div>
+                    </div>
+
+                    <p style="color: #888; margin-bottom: 2rem; font-size: 1.05rem;">
+                        📂 Category: Electronics → Computers → Laptops
+                    </p>
+
+                    <button class="btn">📧 Request Bulk Quote</button>
+                </div>
+            </div>
+
+            <div class="product-description">
+                <h2>Product Overview</h2>
+                <p>
+                    This premium laptop is engineered for professionals who demand exceptional performance and reliability. 
+                    Featuring the latest generation processor, stunning high-resolution display, and extended battery life, 
+                    this device is perfect for business applications, creative work, and intensive multitasking scenarios.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Built with enterprise-grade components and backed by comprehensive warranty coverage across all 
+                    available markets. Our global distribution network ensures fast delivery and local support in 
+                    Pakistan, UAE, and the United States.
+                </p>
+
+                <h2 style="margin-top: 3rem;">Technical Specifications</h2>
+                <p>
+                    • <strong>Processor:</strong> Latest generation Intel Core i7 / AMD Ryzen 7<br>
+                    • <strong>Memory:</strong> 16GB DDR4 RAM (expandable to 32GB)<br>
+                    • <strong>Storage:</strong> 512GB NVMe SSD (upgradeable to 2TB)<br>
+                    • <strong>Display:</strong> 15.6" Full HD IPS (1920x1080) Anti-glare<br>
+                    • <strong>Graphics:</strong> Dedicated NVIDIA GeForce / AMD Radeon<br>
+                    • <strong>Battery:</strong> All-day battery life (up to 12 hours)<br>
+                    • <strong>Build:</strong> Premium aluminum chassis, lightweight design<br>
+                    • <strong>Connectivity:</strong> Wi-Fi 6, Bluetooth 5.2, USB-C, HDMI 2.0, Ethernet<br>
+                    • <strong>OS:</strong> Windows 11 Pro / Linux (customizable)<br>
+                    • <strong>Webcam:</strong> 1080p HD with privacy shutter<br>
+                    • <strong>Audio:</strong> Stereo speakers with Dolby Atmos
+                </p>
+
+                <h2 style="margin-top: 3rem;">🎯 B2B Bulk Order Benefits</h2>
+                <p>
+                    <strong>Volume Discounts:</strong> Save up to 25% on orders of 10+ units<br>
+                    <strong>Flexible Payment Terms:</strong> NET 30/60/90 payment options available<br>
+                    <strong>Dedicated Account Manager:</strong> Personalized support for enterprise clients<br>
+                    <strong>Custom Configuration:</strong> Tailored specifications for your organization<br>
+                    <strong>Express Delivery:</strong> Priority shipping for bulk orders<br>
+                    <strong>Extended Warranty:</strong> Up to 5-year warranty plans available<br>
+                    <strong>On-site Support:</strong> Technical assistance at your location
+                </p>
+
+                <h2 style="margin-top: 3rem;">📦 Shipping & Delivery</h2>
+                <p>
+                    We offer worldwide shipping with tracking for all orders. Standard delivery takes 5-7 business days, 
+                    while express shipping is available for urgent requirements (2-3 business days). All products are 
+                    carefully packaged to ensure safe delivery. International orders may be subject to customs duties 
+                    and local taxes.
+                </p>
+
+                <h2 style="margin-top: 3rem;">🛡️ Warranty & Support</h2>
+                <p>
+                    Every laptop comes with a comprehensive 1-year manufacturer warranty covering hardware defects. 
+                    Extended warranty options (3 and 5 years) are available at checkout. Our customer support team 
+                    provides 24/7 assistance through phone, email, and live chat. On-site repair services can be 
+                    arranged for enterprise customers.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currencyRates = {
+            usd: 1,
+            pkr: 278.4,
+            aed: 3.67
+        };
+
+        const currencySymbols = {
+            usd: ',
+            pkr: 'Rs.',
+            aed: 'AED '
+        };
+
+        function showPage1() {
+            document.getElementById('page1').classList.remove('hidden');
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showPage2(vendorName = 'SastaShop', logo = '💻') {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('vendorName').textContent = vendorName;
+            document.getElementById('vendorNameBreadcrumb').textContent = vendorName;
+            document.getElementById('vendorLogoLarge').textContent = logo;
+            window.scrollTo(0, 0);
+        }
+
+        function showPage3(productName = 'Premium Laptop') {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+            document.getElementById('productDetailName').textContent = productName;
+            document.getElementById('productNameBreadcrumb').textContent = productName;
+            window.scrollTo(0, 0);
+        }
+
+        function toggleCategory(event, element) {
+            event.preventDefault();
+            const parentLi = element.closest('.category-item');
+            parentLi.classList.toggle('expanded');
+        }
+
+        function updatePrices() {
+            const currency = document.getElementById('currencySelector').value;
+            const symbol = currencySymbols[currency];
+            
+            document.querySelectorAll('.product-price, .product-detail-price').forEach(el => {
+                const usdPrice = parseFloat(el.dataset.usd);
+                const price = (usdPrice * currencyRates[currency]).toFixed(0);
+                el.textContent = symbol + parseInt(price).toLocaleString();
+            });
+        }
+
+        document.getElementById('currencySelector').addEventListener('change', updatePrices);
+        document.getElementById('countrySelector').addEventListener('change', function() {
+            console.log('Country changed to:', this.value);
+        });
+
+        updatePrices();
+    </script>
+</body>
+</html>
